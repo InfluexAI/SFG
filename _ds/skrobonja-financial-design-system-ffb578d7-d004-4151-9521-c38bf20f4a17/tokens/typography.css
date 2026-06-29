@@ -1,0 +1,50 @@
+/* ============================================================
+   Skrobonja Financial — Typography Tokens
+   Display:  GT Super Display  (hero headlines, numerals)
+   Editorial:GT Super Text     (long-form serif, pull quotes)
+   Sans:     HK Grotesk        (UI, labels, eyebrows, body sans)
+   ============================================================ */
+:root {
+  /* ---- Families ---- */
+  --font-display: "GT Super Display", Georgia, "Times New Roman", serif;
+  --font-serif:   "GT Super Text", Georgia, "Times New Roman", serif;
+  --font-sans:    "HK Grotesk", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono:    "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+
+  /* ---- Weights ---- */
+  --fw-light:    300; /* @kind font */
+  --fw-book:     350; /* @kind font */
+  --fw-regular:  400; /* @kind font */
+  --fw-medium:   500; /* @kind font */
+  --fw-semibold: 600; /* @kind font */
+  --fw-bold:     700; /* @kind font */
+  --fw-super:    900; /* @kind font */
+
+  /* ---- Type scale (px-based, fluid where useful) ---- */
+  --text-display-2xl: 88px;  /* hero — GT Super Display */
+  --text-display-xl:  68px;
+  --text-display-lg:  52px;
+  --text-display-md:  40px;
+  --text-display-sm:  32px;
+  --text-title:       26px;
+  --text-subtitle:    21px;
+  --text-body-lg:     19px;
+  --text-body:        17px;
+  --text-body-sm:     15px;
+  --text-caption:     13px;
+  --text-eyebrow:     12px;  /* HK Grotesk, tracked caps */
+
+  /* ---- Line heights ---- */
+  --lh-tight:   1.04; /* @kind font */
+  --lh-display: 1.1; /* @kind font */
+  --lh-snug:    1.28; /* @kind font */
+  --lh-body:    1.6; /* @kind font */
+  --lh-relaxed: 1.75; /* @kind font */
+
+  /* ---- Letter spacing ---- */
+  --ls-tight:   -0.02em; /* @kind font */
+  --ls-display: -0.015em; /* @kind font */
+  --ls-normal:  0em; /* @kind font */
+  --ls-eyebrow: 0.18em; /* @kind font */
+  --ls-caps:    0.08em; /* @kind font */
+}

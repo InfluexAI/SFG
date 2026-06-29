@@ -1,0 +1,96 @@
+/* ============================================================
+   Skrobonja Financial — Fonts
+   GT Super (editorial serif) + HK Grotesk (grotesque sans)
+   Trial weights provided by the brand. License before production use.
+   ============================================================ */
+
+/* ---- GT Super Display : large headlines, hero type ---- */
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Light.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Regular-Italic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Display";
+  src: url("../assets/fonts/GT-Super-Display-Super.otf") format("opentype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+/* ---- GT Super Text : editorial body serif, pull quotes ---- */
+@font-face {
+  font-family: "GT Super Text";
+  src: url("../assets/fonts/GT-Super-Text-Book.otf") format("opentype");
+  font-weight: 350; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Text";
+  src: url("../assets/fonts/GT-Super-Text-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Text";
+  src: url("../assets/fonts/GT-Super-Text-Regular-Italic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Text";
+  src: url("../assets/fonts/GT-Super-Text-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Text";
+  src: url("../assets/fonts/GT-Super-Text-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ---- HK Grotesk : UI, labels, body sans, eyebrows ---- */
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-Light.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-Italic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-SemiBold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "HK Grotesk";
+  src: url("../assets/fonts/HKGrotesk-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}

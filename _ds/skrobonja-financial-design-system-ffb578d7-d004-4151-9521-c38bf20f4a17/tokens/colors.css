@@ -1,0 +1,116 @@
+/* ============================================================
+   Skrobonja Financial — Color Tokens
+   Official palette: Grey #4E4C49, Copper #B87333, Orange #CD5700
+   Dark Blue #24334A, Darker Blue #1A2637, Black #000000
+   ============================================================ */
+:root {
+  /* ---- Brand navy ramp (primary) ---- */
+  --navy-950: #000000;   /* Black */
+  --navy-900: #0C1520;
+  --navy-800: #1A2637;   /* Darker Blue */
+  --navy-700: #24334A;   /* Dark Blue — brand primary */
+  --navy-600: #2F4159;
+  --navy-500: #3E5273;
+  --navy-400: #5A6E8C;
+  --navy-300: #8696AC;
+  --navy-200: #BCC6D3;
+  --navy-100: #DDE3EB;
+  --navy-50:  #EEF1F5;
+
+  /* ---- Warm neutrals (ink + grays) ---- */
+  --ink:          #24334A;  /* primary text — Dark Blue */
+  --brand-grey:   #4E4C49;  /* Grey — official brand neutral */
+  --brand-black:  #000000;  /* Black */
+  --gray-700:     #3A434F;
+  --gray-600:     #4E4C49;  /* aligns with brand Grey */
+  --gray-500:     #74787E;
+  --gray-400:     #9AA0A8;
+  --gray-300:     #C2C7CE;
+  --gray-200:     #E0E2E7;
+  --gray-100:     #EEEFF2;
+
+  /* ---- Paper / surfaces (warm, editorial) ---- */
+  --white:     #FFFFFF;
+  --paper:     #FBFAF6;  /* default page — warm off-white */
+  --cream:     #F4EFE6;  /* tinted section background */
+  --cream-deep:#EBE3D5;  /* card on cream / dividers */
+
+  /* ---- Copper (warm highlight, eyebrows, rules) ---- */
+  --copper-700: #8C5520;
+  --copper-600: #9E6828;
+  --copper-500: #B87333;  /* Copper — brand accent */
+  --copper-400: #C98C55;
+  --copper-300: #DDAD87;
+  --copper-200: #EDCFB3;
+  --copper-100: #F7EDE2;
+
+  /* ---- Orange (bold CTA, highlight) ---- */
+  --orange-700: #9C4000;
+  --orange-600: #CD5700;  /* Orange — brand bold accent */
+  --orange-500: #E06520;
+  --orange-400: #EC8A4D;
+  --orange-200: #F9D5BC;
+  --orange-100: #FDEEE5;
+
+  /* ---- Semantic (muted, sophisticated) — DERIVED ---- */
+  --success-700: #1F5244;
+  --success-500: #2E6F5E;
+  --success-100: #E3EFEA;
+  --warning-700: #8A5A1E;
+  --warning-500: #B57A2E;
+  --warning-100: #F6EBD8;
+  --danger-700:  #7E2E2E;
+  --danger-500:  #A33B3B;
+  --danger-100:  #F4E2E1;
+  --info-500:    #3E5273;
+  --info-100:    #E6EAF1;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+
+  /* Text */
+  --text-strong:   var(--ink);
+  --text-body:     var(--gray-700);
+  --text-muted:    var(--gray-500);
+  --text-subtle:   var(--gray-400);
+  --text-inverse:  var(--paper);
+  --text-inverse-muted: var(--navy-200);
+  --text-accent:   var(--copper-500);
+  --text-link:     var(--navy-700);
+
+  /* Surfaces */
+  --surface-page:      var(--paper);
+  --surface-card:      var(--white);
+  --surface-sunken:    var(--cream);
+  --surface-inverse:   var(--navy-700);
+  --surface-inverse-deep: var(--navy-800);
+  --surface-accent-soft: var(--copper-100);
+
+  /* Borders / lines */
+  --border-subtle:  var(--gray-200);
+  --border-default: var(--gray-300);
+  --border-strong:  var(--navy-200);
+  --border-inverse: rgba(255, 255, 255, 0.16);
+  --hairline:       var(--cream-deep);
+
+  /* Interactive (brand primary = orange) */
+  --action-bg:        var(--orange-600);
+  --action-bg-hover:  var(--orange-700);
+  --action-bg-active: #7A3000;
+  --action-fg:        var(--white);
+
+  /* Accent action (Orange — bold CTA) */
+  --accent-bg:        var(--orange-600);
+  --accent-bg-hover:  var(--orange-700);
+  --accent-bg-active: #7A3000;
+  --accent-fg:        var(--white);
+
+  /* Focus */
+  --focus-ring: var(--copper-500);
+
+  /* ---- Brand gradients ---- */
+  --gradient-warm: linear-gradient(90deg, #F39C4B 0%, #9D6930 25%, #EFAA74 50%, #9D6930 75%, #F39C4B 100%); /* @kind color */
+  --gradient-blue: linear-gradient(90deg, #24334A 0%, #1F4278 100%); /* @kind color */
+  --gradient-blue-end: #1F4278; /* cobalt end of blue gradient */
+}
