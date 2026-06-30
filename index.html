@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skrobonja Financial Group — Wealth Management for High-Income Families</title>
+  <title>Skrobonja Financial Group, Wealth Management for High-Income Families</title>
   <meta name="description" content="Brian Skrobonja: St. Louis wealth management firm. WealthSync coordinates retirement income, tax strategy, and estate planning for business owners and high-income families. 30+ years.">
   <link rel="stylesheet" href="_ds/skrobonja-financial-design-system-ffb578d7-d004-4151-9521-c38bf20f4a17/tokens/fonts.css">
   <link rel="stylesheet" href="_ds/skrobonja-financial-design-system-ffb578d7-d004-4151-9521-c38bf20f4a17/tokens/colors.css">
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="_ds/skrobonja-financial-design-system-ffb578d7-d004-4151-9521-c38bf20f4a17/tokens/base.css">
   <style>
     /* ═══════════════════════════════════════════════════
-       SFG HOMEPAGE — Custom Styles
+       SFG HOMEPAGE, Custom Styles
        Design tokens come from the DS; component styles here
     ═══════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; }
@@ -55,7 +55,7 @@
     }
     .display-h2--inv { color: var(--white); }
     .body-serif {
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: 18px; line-height: 1.68;
       color: var(--text-body); margin: 0 0 20px;
     }
@@ -67,7 +67,7 @@
       display: inline-flex; align-items: center; gap: 10px;
       font-family: var(--font-sans); font-weight: 600;
       border-radius: var(--radius-sm);
-      text-decoration: none; cursor: pointer; border: none;
+      text-decoration: none; cursor: pointer; border: none; white-space: nowrap;
       transition: background var(--dur-fast) var(--ease-standard),
                   color var(--dur-fast) var(--ease-standard);
     }
@@ -78,12 +78,20 @@
     .btn--primary:hover { background: var(--orange-700); text-decoration: none; }
     .btn--primary:hover .btn__arrow { transform: translateX(3px); }
     .btn--primary-lg { font-size: 17px; padding: 19px 34px; }
+    .btn--outline {
+      background: transparent; color: var(--white);
+      border: 0.5px solid var(--orange-600);
+      font-size: 15px; padding: 13px 24px;
+    }
+    .btn--outline:hover { background: var(--orange-600); color: var(--white); text-decoration: none; }
+    .btn--outline:hover .btn__arrow { transform: translateX(3px); }
     .btn--white {
       background: var(--white); color: var(--navy-800);
       font-size: 17px; padding: 19px 34px;
     }
     .btn--white:hover { background: var(--cream); text-decoration: none; }
-    .btn__arrow { transition: transform var(--dur-fast) var(--ease-standard); }
+    .btn__arrow { transition: transform var(--dur-fast) var(--ease-standard); display: inline-flex; }
+    .btn__arrow svg { display: block; width: 24px; height: 11px; }
     .btn--ghost {
       background: transparent; color: var(--navy-300);
       font-size: 14px; padding: 12px 0;
@@ -125,53 +133,71 @@
     ───────────────────────────────────────────────── */
     .nav {
       position: sticky; top: 0; z-index: 100;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background var(--dur-base) var(--ease-standard),
+                  border-color var(--dur-base) var(--ease-standard);
+    }
+    .nav.scrolled {
       background: rgba(26,38,55,0.97);
       backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(184,115,51,0.18);
+      border-bottom-color: rgba(184,115,51,0.18);
     }
     .nav__inner {
       max-width: 1180px; margin: 0 auto; padding: 0 40px;
       height: 70px; display: flex; align-items: center;
-      justify-content: space-between; gap: 32px;
+      justify-content: space-between; gap: 40px;
     }
-    .nav__logo { display: flex; flex-direction: column; gap: 3px; text-decoration: none; }
-    .nav__logo-name {
-      font-family: var(--font-display); font-size: 19px;
-      color: var(--white); letter-spacing: -0.01em; line-height: 1;
-    }
-    .nav__logo-sub {
-      font-family: var(--font-sans); font-size: 9px; font-weight: 600;
-      letter-spacing: 0.20em; text-transform: uppercase;
-      color: var(--copper-400); line-height: 1;
+    .nav__logo { display: flex; align-items: center; text-decoration: none; }
+    .nav__logo img { height: 50px; width: auto; display: block; }
+    .nav__right {
+      display: flex; align-items: center; gap: 36px; margin-left: auto;
     }
     .nav__links {
       display: flex; align-items: center; gap: 28px;
       list-style: none; margin: 0; padding: 0;
     }
     .nav__links a {
-      font-family: var(--font-sans); font-size: 13px; font-weight: 500;
-      color: var(--navy-300); text-decoration: none; letter-spacing: 0.01em;
-      transition: color var(--dur-fast);
+      font-family: var(--font-sans); font-size: 13px; font-weight: 400;
+      color: var(--white); text-decoration: none; letter-spacing: 0.01em;
+      transition: opacity var(--dur-fast);
     }
-    .nav__links a:hover { color: var(--white); }
+    .nav__links a:hover { opacity: 0.7; }
 
     /* ─────────────────────────────────────────────────
        HERO
     ───────────────────────────────────────────────── */
     .hero {
-      background: var(--navy-800); position: relative; overflow: hidden;
+      position: relative; overflow: hidden;
+      margin-top: -70px;
+      background: var(--navy-800) url('assets/hero.png') no-repeat right 30%;
+      background-size: cover;
     }
     .hero__glow {
       position: absolute; inset: 0; pointer-events: none;
       background:
-        radial-gradient(ellipse 70% 70% at 70% 50%, rgba(184,115,51,0.07) 0%, transparent 65%),
-        radial-gradient(ellipse 40% 60% at 10% 30%, rgba(36,51,74,0.6) 0%, transparent 70%);
+        linear-gradient(90deg,
+          rgba(11,19,34,1) 0%,
+          rgba(13,22,38,0.97) 38%,
+          rgba(15,25,42,0.82) 56%,
+          rgba(18,28,46,0.45) 72%,
+          rgba(26,38,55,0) 90%),
+        linear-gradient(0deg,
+          rgba(26,38,55,0.96) 0%,
+          rgba(26,38,55,0.62) 18%,
+          rgba(26,38,55,0.22) 34%,
+          rgba(26,38,55,0) 50%);
     }
     .hero__inner {
       position: relative; z-index: 1;
-      max-width: 1180px; margin: 0 auto; padding: 100px 40px 80px;
-      display: grid; grid-template-columns: 1.15fr 0.85fr;
-      gap: 72px; align-items: center;
+      max-width: 1180px; margin: 0 auto; padding: 152px 40px 96px;
+      display: grid; grid-template-columns: minmax(0, 760px);
+      align-items: center;
+    }
+    .hero__border {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 6px; z-index: 3;
+      background: linear-gradient(90deg,
+        #D38566 0%, #783E28 25.5%, #DC8C6D 53.1%, #783E28 78.6%, #D38566 100%);
     }
     .hero__eyebrow {
       display: flex; align-items: center; gap: 14px;
@@ -184,14 +210,19 @@
       width: 28px; height: 2px; background: var(--copper-500);
     }
     .hero h1 {
-      font-family: var(--font-display); font-size: clamp(36px,4.2vw,58px);
-      font-weight: 700; line-height: 1.07; letter-spacing: -0.022em;
-      color: var(--white); margin: 0 0 28px; max-width: 17ch;
+      font-family: var(--font-display); font-size: clamp(34px,4.14vw,48px);
+      font-weight: 400; line-height: 1.12; letter-spacing: -0.02em;
+      color: var(--white); margin: 0 0 28px; max-width: none;
     }
-    .hero h1 em { font-style: italic; color: var(--copper-300); }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(100deg, #CD5700 0%, #B87333 45%, #CD5700 100%);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
     .hero__lead {
-      font-family: var(--font-serif); font-size: 19px; line-height: 1.65;
-      color: var(--navy-200); margin: 0 0 16px; max-width: 50ch;
+      font-family: var(--font-sans); font-size: 18px; line-height: 1.65;
+      color: var(--navy-200); margin: 0 0 16px; max-width: 52ch;
     }
     .hero__sub {
       font-family: var(--font-sans); font-size: 15px; line-height: 1.65;
@@ -210,7 +241,7 @@
       color: var(--navy-500); text-align: center;
     }
     .well-label span { display: block; color: var(--navy-600); font-weight: 400; margin-top: 4px; }
-    .hero__aeo { padding: 0 40px 72px; max-width: 1180px; margin: 0 auto; }
+    .hero__aeo { position: relative; z-index: 1; padding: 0 40px 72px; max-width: 1180px; margin: 0 auto; }
 
     /* ─────────────────────────────────────────────────
        01 EMPATHY
@@ -222,7 +253,7 @@
       box-shadow: var(--shadow-sm);
     }
     .empathy-quote p {
-      font-family: var(--font-serif); font-size: clamp(19px,2vw,23px);
+      font-family: var(--font-sans); font-size: clamp(19px,2vw,23px);
       line-height: 1.45; color: var(--ink); font-weight: 500; margin: 0;
     }
 
@@ -236,7 +267,7 @@
     .cost-list li {
       display: flex; align-items: flex-start; gap: 18px;
       padding: 20px 0; border-bottom: 1px solid var(--hairline);
-      font-family: var(--font-serif); font-size: 18px;
+      font-family: var(--font-sans); font-size: 18px;
       line-height: 1.55; color: var(--text-body);
     }
     .cost-marker {
@@ -279,7 +310,7 @@
       color: var(--ink); margin: 0; line-height: 1.2;
     }
     .risk-card p {
-      font-family: var(--font-serif); font-size: 15px; line-height: 1.65;
+      font-family: var(--font-sans); font-size: 15px; line-height: 1.65;
       color: var(--text-body); margin: 0;
     }
 
@@ -302,11 +333,11 @@
       max-width: 22ch; margin: 0 0 36px;
     }
     .gap-sec p {
-      font-family: var(--font-serif); font-size: 18px;
+      font-family: var(--font-sans); font-size: 18px;
       line-height: 1.7; color: var(--navy-200); max-width: 60ch; margin: 0 0 20px;
     }
     .gap-sec__highlight {
-      font-family: var(--font-serif); font-size: 20px; line-height: 1.6;
+      font-family: var(--font-sans); font-size: 20px; line-height: 1.6;
       color: var(--white); font-weight: 600; max-width: 58ch; margin: 0 0 20px;
     }
     .gap-sec__closer {
@@ -338,7 +369,7 @@
     }
 
     /* ─────────────────────────────────────────────────
-       07 HOW IT WORKS — PROCESS STEPS
+       07 HOW IT WORKS, PROCESS STEPS
     ───────────────────────────────────────────────── */
     .steps-track {
       position: relative; display: grid;
@@ -374,7 +405,7 @@
       color: var(--ink); line-height: 1.3;
     }
     .step__desc {
-      font-family: var(--font-serif); font-size: 12px;
+      font-family: var(--font-sans); font-size: 12px;
       color: var(--text-muted); line-height: 1.5;
     }
     .year-bars { display: flex; gap: 20px; margin-bottom: 36px; }
@@ -390,7 +421,7 @@
       color: var(--copper-600); margin-bottom: 6px;
     }
     .year-bar p {
-      font-family: var(--font-serif); font-size: 16px;
+      font-family: var(--font-sans); font-size: 16px;
       color: var(--ink); margin: 0;
     }
 
@@ -445,7 +476,7 @@
       color: var(--copper-400); margin-bottom: 14px;
     }
     .fw-promise p {
-      font-family: var(--font-serif); font-size: clamp(16px,1.7vw,20px);
+      font-family: var(--font-sans); font-size: clamp(16px,1.7vw,20px);
       line-height: 1.55; color: var(--navy-100); margin: 0;
     }
 
@@ -459,7 +490,7 @@
       color: var(--ink); margin: 0 0 12px; line-height: 1.15;
     }
     .diff-col p {
-      font-family: var(--font-serif); font-size: 16px;
+      font-family: var(--font-sans); font-size: 16px;
       line-height: 1.65; color: var(--text-body); margin: 0;
     }
 
@@ -486,7 +517,7 @@
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
     }
     .about-blockquote p {
-      font-family: var(--font-serif); font-size: clamp(17px,1.7vw,21px);
+      font-family: var(--font-sans); font-size: clamp(17px,1.7vw,21px);
       line-height: 1.48; color: var(--ink); font-weight: 500; margin: 0;
     }
     .about-byline { border-top: 1px solid var(--hairline); padding-top: 22px; margin-top: 6px; }
@@ -517,7 +548,7 @@
       color: var(--copper-200);
     }
     .testi-card blockquote {
-      margin: 0; font-family: var(--font-serif); font-size: 17px;
+      margin: 0; font-family: var(--font-sans); font-size: 17px;
       line-height: 1.55; color: var(--text-body); font-weight: 500;
     }
     .testi-card figcaption {
@@ -551,12 +582,12 @@
       margin: 0 auto 28px; line-height: 1.1; letter-spacing: -0.018em;
     }
     .cta-sec__lead {
-      font-family: var(--font-serif); font-size: 19px; line-height: 1.65;
-      color: var(--navy-200); max-width: 56ch; margin: 0 auto 40px;
+      font-family: var(--font-sans); font-size: 19px; line-height: 1.65;
+      color: var(--navy-200); max-width: 72ch; margin: 0 auto 40px;
     }
     .cta-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .cta-closer {
-      font-family: var(--font-serif); font-size: 15px; font-style: italic;
+      font-family: var(--font-sans); font-size: 15px; font-style: italic;
       color: var(--navy-500); margin: 56px 0 0;
     }
 
@@ -568,9 +599,10 @@
     .footer__cols {
       display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
       gap: 48px; padding-bottom: 48px;
-      border-bottom: 1px solid rgba(184,115,51,0.18);
       margin-bottom: 36px;
     }
+    .footer-brand__logo { display: inline-block; margin-bottom: 4px; }
+    .footer-brand__logo img { height: 34px; width: auto; display: block; }
     .footer-brand__name {
       font-family: var(--font-display); font-size: 20px; color: var(--white);
       letter-spacing: -0.01em; line-height: 1;
@@ -651,18 +683,19 @@
 <header class="nav" role="banner">
   <div class="nav__inner">
     <a href="#hero" class="nav__logo">
-      <span class="nav__logo-name">Skrobonja</span>
-      <span class="nav__logo-sub">Financial Group</span>
+      <img src="assets/logo-dark.png" alt="Skrobonja Financial Group">
     </a>
-    <nav aria-label="Primary navigation">
-      <ul class="nav__links">
-        <li><a href="#cost">The Stakes</a></li>
-        <li><a href="#how">How It Works</a></li>
-        <li><a href="#framework">The Framework</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-    <a href="#cta" class="btn btn--primary">Schedule a Call <span class="btn__arrow">→</span></a>
+    <div class="nav__right">
+      <nav aria-label="Primary navigation">
+        <ul class="nav__links">
+          <li><a href="#cost">The Stakes</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#framework">The Framework</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a href="#cta" class="btn btn--outline">Schedule a Call <span class="btn__arrow"><svg viewBox="0 0 38 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M36.0703 7.58335L1.08415 7.58335M29.612 14.0836C31.0652 11.1991 33.2447 9.00518 36.0703 7.58335C33.2449 6.1209 31.0652 3.96784 29.612 1.08356" stroke="currentColor" stroke-width="2.16667" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+    </div>
   </div>
 </header>
 
@@ -674,57 +707,49 @@
   <div class="hero__glow" aria-hidden="true"></div>
   <div class="hero__inner">
     <div>
-      <div class="hero__eyebrow">Full-Service Financial Concierge</div>
-      <h1>You Spent a Lifetime Building It. <em>This Is the Season That Determines What Happens to It.</em></h1>
+      <h1>You Spent a Lifetime Building It.<br><em>This Is the Season That<br>Determines What Happens to It.</em></h1>
       <p class="hero__lead">The years surrounding retirement aren't just a transition. They're the <strong style="color:var(--white);">highest-stakes financial window of your life</strong>. More decisions. More complexity. More consequences that can't be undone.</p>
       <p class="hero__sub">You've done the hard part. What comes next deserves the same level of intention that got you here.</p>
       <div class="hero__actions">
         <a href="#how" class="btn btn--primary btn--primary-lg">See how WealthSync™ works <span class="btn__arrow">→</span></a>
-        <a href="#check" class="btn btn--ghost">Take the 7-Minute Check →</a>
       </div>
-    </div>
-    <div class="hero__well" aria-hidden="true">
-      <div class="well-label">Hero Visual<span>Brand photography / cinematic image</span></div>
     </div>
   </div>
   <div class="hero__aeo">
-    <div class="aeo aeo--dark" style="max-width:880px;">
-      <p>Brian Skrobonja is a Certified Private Wealth Advisor (CPWA) and Chartered Financial Consultant (ChFC) with over 30 years of experience helping business owners and high-income families build coordinated retirement, tax, and estate strategies. He is the founder of Skrobonja Financial Group, a St. Louis-based wealth management firm established in 1993, and the creator of the WealthSync process: a proprietary three-phase framework that aligns every layer of a client's financial life across investments, income, taxes, insurance, and estate planning. Brian is the author of three books on wealth management and financial planning, a regular contributor to Kiplinger, and host of the Common-Sense Financial podcast, ranked among the Forbes Top 10 Podcasts by Financial Advisors.</p>
+    <div style="max-width:880px;margin:0 auto;border-top:1px solid rgb(134,150,172);padding-top:28px;text-align:center;">
+      <p style="font-family:var(--font-sans);font-size:12px;line-height:1.7;color:rgb(134,150,172);margin:0;">Brian Skrobonja is a Certified Private Wealth Advisor (CPWA) and Chartered Financial Consultant (ChFC) with over 30 years of experience helping business owners and high-income families build coordinated retirement, tax, and estate strategies. He is the founder of Skrobonja Financial Group, a St. Louis-based wealth management firm established in 1993, and the creator of the WealthSync process: a proprietary three-phase framework that aligns every layer of a client's financial life across investments, income, taxes, insurance, and estate planning. Brian is the author of three books on wealth management and financial planning, a regular contributor to Kiplinger, and host of the Common-Sense Financial podcast, ranked among the Forbes Top 10 Podcasts by Financial Advisors.</p>
     </div>
   </div>
+  <div class="hero__border" aria-hidden="true"></div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     01 — WE KNOW WHERE YOU ARE
+     01, WE KNOW WHERE YOU ARE
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="where" data-screen-label="01 We Know Where You Are" style="background:var(--cream);">
   <div class="wrap--md">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Problem · Empathy</div>
     <h2 class="display-h2" style="max-width:20ch;">You've Worked Too Hard to Leave This to Chance.</h2>
     <p class="body-serif body-serif--lg" style="color:var(--ink);font-weight:500;">You didn't get here by accident.</p>
     <p class="body-serif">Decades of discipline. Smart decisions. Sacrifices other people weren't willing to make.</p>
-    <p class="body-serif">And now you're standing at the edge of the transition you've been building toward your whole career — retirement, a business exit, or a major shift in how your wealth needs to work for you.</p>
+    <p class="body-serif">And now you're standing at the edge of the transition you've been building toward your whole career, retirement, a business exit, or a major shift in how your wealth needs to work for you.</p>
     <div class="empathy-quote">
       <p>It should feel like a finish line. For a lot of people, it feels more like standing at a crossroads with no map.</p>
     </div>
     <p class="body-serif">The decisions you're facing now are unlike anything that came before. They're more interconnected. <strong>The stakes are higher.</strong> And the window to get them right is narrower than most people realize.</p>
     <p class="body-serif">You're not looking for more information. You're looking for someone who has been here before, with people like you, and knows exactly what to do.</p>
     <p class="body-serif" style="color:var(--ink);font-weight:600;font-size:19px;">That's why we built WealthSync™.</p>
-    <p class="body-serif">We work with successful professionals, executives, and entrepreneurs who have built wealth — in a business, real estate, intellectual property, or decades of disciplined investing — and are now navigating the transition that determines what happens to it.</p>
+    <p class="body-serif">We work with successful professionals, executives, and entrepreneurs who have built wealth, in a business, real estate, intellectual property, or decades of disciplined investing, and are now navigating the transition that determines what happens to it.</p>
     <p class="body-serif" style="font-weight:500;margin-bottom:0;">If that's you, keep reading.</p>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     02 — THE COST OF GETTING THIS WRONG
+     02, THE COST OF GETTING THIS WRONG
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="cost" data-screen-label="02 The Cost of Getting This Wrong" style="background:var(--white);">
   <div class="wrap--md">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Problem · Stakes</div>
     <h2 class="display-h2" style="max-width:26ch;">Most People Don't Lose What They've Built All at Once. They Lose It Gradually, Through Decisions That Seemed Fine at the Time.</h2>
     <ul class="cost-list">
       <li><span class="cost-marker" aria-hidden="true"></span>A portfolio too exposed to market swings right when withdrawals begin.</li>
@@ -732,21 +757,19 @@
       <li><span class="cost-marker" aria-hidden="true"></span>An income plan built on assumptions instead of engineering.</li>
       <li><span class="cost-marker" aria-hidden="true"></span>An estate that passes on conflict instead of clarity.</li>
     </ul>
-    <p class="cost-callout">None of these feel urgent — until they are.</p>
+    <p class="cost-callout">None of these feel urgent, until they are.</p>
     <p class="body-serif">And by then, the window to fix them has often already closed.</p>
-    <p class="body-serif">The families who struggle in retirement rarely made reckless decisions. They simply didn't have someone coordinating the full picture — until it was too late to matter.</p>
-    <p class="body-serif" style="margin-bottom:0;">That moment — the one where a <strong>fixable problem becomes a permanent one</strong> — is exactly what this firm was built to prevent.</p>
+    <p class="body-serif">The families who struggle in retirement rarely made reckless decisions. They simply didn't have someone coordinating the full picture, until it was too late to matter.</p>
+    <p class="body-serif" style="margin-bottom:0;">That moment, the one where a <strong>fixable problem becomes a permanent one</strong>, is exactly what this firm was built to prevent.</p>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     03 — THREE RISKS YOU ALREADY KNOW ABOUT
+     03, THREE RISKS YOU ALREADY KNOW ABOUT
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="risks-known" data-screen-label="03 The Three Risks You Already Know About" style="background:var(--cream);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Problem · Named</div>
     <h2 class="display-h2" style="max-width:24ch;">You Don't Have to Say It Out Loud. We've Heard It Enough Times to Know.</h2>
     <div class="risk-grid">
       <div class="risk-card">
@@ -757,12 +780,12 @@
       <div class="risk-card">
         <span class="risk-card__tag">Risk 02</span>
         <h3>Tax Risk.</h3>
-        <p>Decades of deferred taxes are sitting inside your investments, retirement plans, and deferred compensation — and retirement is often when the IRS comes to collect. Without a proactive strategy, you could hand over far more than necessary during the years you can least afford it.</p>
+        <p>Decades of deferred taxes are sitting inside your investments, retirement plans, and deferred compensation, and retirement is often when the IRS comes to collect. Without a proactive strategy, you could hand over far more than necessary during the years you can least afford it.</p>
       </div>
       <div class="risk-card">
         <span class="risk-card__tag">Risk 03</span>
         <h3>Income Risk.</h3>
-        <p>The paycheck stops. Now every dollar has to be engineered to last. Without a deliberate income design, you're guessing — and in retirement, guessing has consequences that compound.</p>
+        <p>The paycheck stops. Now every dollar has to be engineered to last. Without a deliberate income design, you're guessing, and in retirement, guessing has consequences that compound.</p>
       </div>
     </div>
     <div style="border-top:1px solid var(--hairline);padding-top:28px;max-width:60ch;">
@@ -774,12 +797,10 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     04 — THE RISKS YOU DIDN'T KNOW TO ASK ABOUT
+     04, THE RISKS YOU DIDN'T KNOW TO ASK ABOUT
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="risks-hidden" data-screen-label="04 The Risks You Didn't Know to Ask About" style="background:var(--white);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Insight · Reframe</div>
     <h2 class="display-h2" style="max-width:24ch;">The Hidden Risks That Quietly Undermine Even the Best-Laid Plans</h2>
     <p class="body-serif" style="font-size:19px;margin-bottom:48px;max-width:58ch;">Most advisors address what you ask about. <strong>We address what you haven't thought to ask yet.</strong></p>
     <div class="risk-grid">
@@ -796,27 +817,25 @@
       <div class="risk-card risk-card--cream">
         <span class="risk-card__tag">Risk 06</span>
         <h3>Estate Planning.</h3>
-        <p>This isn't just documents. Without intentional design, what you've spent a lifetime building may not go where you intend — and the cost, delay, and conflict left behind can undo in months what took decades to create.</p>
+        <p>This isn't just documents. Without intentional design, what you've spent a lifetime building may not go where you intend, and the cost, delay, and conflict left behind can undo in months what took decades to create.</p>
       </div>
     </div>
     <div style="border-top:1px solid var(--hairline);padding-top:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;">
       <p style="font-family:var(--font-display);font-size:clamp(21px,2.2vw,28px);font-weight:700;color:var(--ink);margin:0;max-width:34ch;">Six areas. All interconnected. None designed to function alone.</p>
       <p class="body-serif" style="margin:0;max-width:54ch;">This is what WealthSync™ was built to coordinate.</p>
-      <a href="#framework" class="text-link">See how WealthSync™ addresses all six →</a>
+      <a href="#framework" class="btn btn--primary">See how WealthSync™ addresses all six <span class="btn__arrow">→</span></a>
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     05 — THE GAP
+     05, THE GAP
 ══════════════════════════════════════════════════ -->
 <section class="sec--lg gap-sec" id="gap" data-screen-label="05 The Gap">
   <div class="wrap--md gap-sec__inner">
-    <div class="copper-rule copper-rule--inv"></div>
-    <div class="eyebrow eyebrow--inv" style="margin-bottom:20px;">Insight · Why</div>
     <h2>Most Advisors Manage Your Money. Nobody Is Managing the Whole Picture.</h2>
-    <p>The financial industry was built for accumulation — and most firms are still operating that way.</p>
+    <p>The financial industry was built for accumulation, and most firms are still operating that way.</p>
     <p>They manage your portfolio. They may run a tax return. They might have someone review your estate documents.</p>
     <p class="gap-sec__highlight">But nobody is sitting at the center, making sure every decision in one area isn't quietly working against another.</p>
     <p>Investment decisions made without income context. Tax moves made without estate awareness. Risk management treated as an afterthought.</p>
@@ -827,26 +846,24 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     06 — THE 7-MINUTE WEALTHSYNC™ CHECK
+     06, THE 7-MINUTE WEALTHSYNC™ CHECK
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="check" data-screen-label="06 The 7-Minute WealthSync Check" style="background:var(--cream);">
   <div class="wrap">
     <div class="check-card">
       <div>
-        <div class="copper-rule"></div>
-        <div class="eyebrow" style="margin-bottom:18px;">Action · Low Commitment</div>
         <h2>The 7-Minute WealthSync™ Check. Is Your Wealth Protected, or at Risk?</h2>
         <p class="body-serif">If you're not ready for a conversation yet, that's completely fine.</p>
         <p class="body-serif">The 7-Minute WealthSync™ Check is a no-obligation first step that lets you evaluate your own situation on your own time. It's designed to surface <strong>the three most visible gaps in your financial life</strong>, so you can see clearly where you stand before deciding whether to take the next step.</p>
         <p style="font-family:var(--font-sans);font-size:17px;font-weight:600;color:var(--ink);margin-bottom:10px;">No sales pitch. No pressure. Just clarity.</p>
-        <p style="font-family:var(--font-serif);font-size:15px;font-style:italic;color:var(--text-muted);margin-bottom:30px;">Think of it as a gift to your future self.</p>
+        <p style="font-family:var(--font-sans);font-size:15px;font-style:italic;color:var(--text-muted);margin-bottom:30px;">Think of it as a gift to your future self.</p>
         <a href="#" class="btn btn--primary">Take the 7-Minute WealthSync™ Check <span class="btn__arrow">→</span></a>
       </div>
       <div class="check-well" aria-hidden="true">
         <div class="well-label" style="color:var(--navy-400);">Assessment Preview<span style="color:var(--navy-500);">Quiz / scorecard UI</span></div>
       </div>
     </div>
-    <div class="aeo" style="max-width:880px;background:var(--white);">
+    <div class="aeo" style="max-width:1144px;margin:0 auto;background:transparent;border:none;text-align:center;">
       <p>The 7-Minute WealthSync Diagnostic is a free assessment offered by Skrobonja Financial Group that identifies gaps in a client's current financial strategy across income, taxes, and investments. Designed for business owners and high-income families, the diagnostic surfaces hidden inefficiencies and misalignments before an initial discovery call. No obligation is required to complete it.</p>
     </div>
   </div>
@@ -854,14 +871,12 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     07 — HOW IT WORKS
+     07, HOW IT WORKS
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="how" data-screen-label="07 How It Works" style="background:var(--white);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Solution · Process</div>
     <h2 class="display-h2" style="max-width:22ch;">A Structured Journey, Not a Series of Meetings</h2>
-    <p class="body-serif" style="font-size:19px;margin-bottom:52px;max-width:60ch;">WealthSync™ is a consultative process that takes you from where you are to where you need to be — with <strong>clarity at every step and nothing left to chance</strong>.</p>
+    <p class="body-serif" style="font-size:19px;margin-bottom:52px;max-width:60ch;">WealthSync™ is a consultative process that takes you from where you are to where you need to be, with <strong>clarity at every step and nothing left to chance</strong>.</p>
 
     <div class="steps-track">
       <div class="step">
@@ -893,8 +908,8 @@
       </div>
     </div>
 
-    <p class="body-serif" style="max-width:64ch;">It begins with a 90-minute Discovery where we learn everything about your situation, your goals, and what matters most to you. From there, we map your opportunities, present our findings, and — if we're the right fit — move into building and activating your complete financial system.</p>
-    <p class="body-serif" style="max-width:64ch;margin-bottom:36px;">Once you're inside the WealthSync™ process, you're never guessing about where things stand. A quarterly Pulse keeps every layer of your financial life actively reviewed, adjusted, and aligned — year after year.</p>
+    <p class="body-serif" style="max-width:64ch;">It begins with a 90-minute Discovery where we learn everything about your situation, your goals, and what matters most to you. From there, we map your opportunities, present our findings, and, if we're the right fit, move into building and activating your complete financial system.</p>
+    <p class="body-serif" style="max-width:64ch;margin-bottom:36px;">Once you're inside the WealthSync™ process, you're never guessing about where things stand. A quarterly Pulse keeps every layer of your financial life actively reviewed, adjusted, and aligned, year after year.</p>
 
     <div class="year-bars">
       <div class="year-bar">
@@ -907,9 +922,9 @@
       </div>
     </div>
 
-    <a href="#" class="text-link">→ See the full WealthSync™ process</a>
+    <a href="#" class="btn btn--primary">See the full WealthSync™ process <span class="btn__arrow">→</span></a>
 
-    <div class="aeo" style="max-width:880px;">
+    <div class="aeo" style="max-width:1144px;margin:0 auto;background:transparent;border:none;text-align:center;">
       <p>WealthSync is the proprietary wealth management process developed by Brian Skrobonja at Skrobonja Financial Group that coordinates every layer of a client's financial life into one aligned strategy. The process moves through three phases: Discovery and Mapping, in which the client's goals, values, risks, and financial landscape are documented; Design and Implementation, in which a custom plan is built across investments, income, tax, and estate and immediately executed; and Ongoing Optimization, in which the plan is continuously monitored and adjusted as life, goals, and the tax environment change. WealthSync is designed for business owners, executives, and high-income families navigating the transition from wealth accumulation to wealth distribution, protection, and legacy.</p>
     </div>
   </div>
@@ -917,12 +932,10 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     08 — THE FRAMEWORK
+     08, THE FRAMEWORK
 ══════════════════════════════════════════════════ -->
 <section class="sec framework-sec" id="framework" data-screen-label="08 The Framework">
   <div class="wrap framework-sec__inner">
-    <div class="copper-rule copper-rule--inv"></div>
-    <div class="eyebrow eyebrow--inv" style="margin-bottom:20px;">Solution · System</div>
     <h2 class="display-h2 display-h2--inv" style="max-width:22ch;">Six Coordinated Layers. One Intentional System.</h2>
     <p class="body-serif body-serif--inv" style="margin-bottom:48px;max-width:64ch;">The WealthSync™ Framework is the architecture behind every decision we make together. Six disciplines, none designed to function alone, coordinated so that <strong style="color:var(--white);">every dollar has a purpose, every decision has context, and nothing works against itself</strong>.</p>
 
@@ -942,18 +955,16 @@
       <p>No financial decision is made in isolation. Every dollar is guided by rules-based discipline, positioned with purpose, aligned to your full financial picture.</p>
     </div>
 
-    <a href="#" class="text-link text-link--inv">→ Explore the WealthSync™ Framework</a>
+    <a href="#" class="btn btn--primary">Explore the WealthSync™ Framework <span class="btn__arrow">→</span></a>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     09 — THREE THINGS THAT MAKE US DIFFERENT
+     09, THREE THINGS THAT MAKE US DIFFERENT
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="different" data-screen-label="09 Three Things That Make Us Different" style="background:var(--paper);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Solution · Differentiation</div>
     <h2 style="font-family:var(--font-display);font-size:clamp(32px,3.8vw,50px);font-weight:700;color:var(--ink);margin:0 0 48px;letter-spacing:-0.015em;line-height:1.1;">Clarity. Coordination. Control.</h2>
     <div class="diff-grid">
       <div class="diff-col">
@@ -962,7 +973,7 @@
       </div>
       <div class="diff-col">
         <h3>Coordination.</h3>
-        <p>Every discipline works as one system. Income, taxes, assets, risk, liquidity, and estate — all aligned, all connected, none operating in isolation.</p>
+        <p>Every discipline works as one system. Income, taxes, assets, risk, liquidity, and estate, all aligned, all connected, none operating in isolation.</p>
       </div>
       <div class="diff-col">
         <h3>Control.</h3>
@@ -974,25 +985,23 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     10 — ABOUT BRIAN
+     10, ABOUT BRIAN
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="about" data-screen-label="10 About Brian" style="background:var(--cream);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:44px;">Proof · Authority</div>
     <div class="about-grid">
       <div class="about-img-col">
-        <div class="about-well" aria-hidden="true">
-          <div class="well-label" style="color:var(--navy-400);">Brian · Photo<span style="color:var(--navy-500);">Portrait + video</span></div>
+        <div class="about-well">
+          <img src="assets/brian-photo.png" alt="Brian Skrobonja presenting to clients in a conference room" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
       </div>
       <div>
         <h2 class="display-h2" style="max-width:22ch;">Why I've Spent 30 Years Focused on This One Problem</h2>
         <p class="body-serif">I grew up in a blue-collar family in St. Louis. My dad came from Croatia, worked hard his entire life, and was always the smartest guy in the room when it came to figuring things out. But he traded time for money his whole career, and I watched that limit what was possible for him.</p>
-        <p class="body-serif">In my twenties I made the same mistake. I chased the lifestyle before I understood how wealth actually works. It took years of doing it wrong before I had the clarity that changed everything: <strong>real financial freedom doesn't come from earning more. It comes from building assets that generate income</strong> — so money works for you instead of the other way around.</p>
-        <p class="body-serif">That realization became the foundation for everything I've built since 1993. Thirty-plus years of working alongside successful families and entrepreneurs at exactly the moment that matters most — the transition from building wealth to protecting it, living on it, and passing it on.</p>
+        <p class="body-serif">In my twenties I made the same mistake. I chased the lifestyle before I understood how wealth actually works. It took years of doing it wrong before I had the clarity that changed everything: <strong>real financial freedom doesn't come from earning more. It comes from building assets that generate income</strong>, so money works for you instead of the other way around.</p>
+        <p class="body-serif">That realization became the foundation for everything I've built since 1993. Thirty-plus years of working alongside successful families and entrepreneurs at exactly the moment that matters most, the transition from building wealth to protecting it, living on it, and passing it on.</p>
         <p class="body-serif">What I've learned over those years is simple: the people who struggle in this season aren't the ones who made bad decisions. They're the ones who didn't have a system, or someone coordinating the whole picture.</p>
-        <p class="body-serif">WealthSync™ is the answer to that problem. And after three decades, I still love this work — because I know what it means to a family when it's done right.</p>
+        <p class="body-serif">WealthSync™ is the answer to that problem. And after three decades, I still love this work, because I know what it means to a family when it's done right.</p>
         <div class="about-blockquote">
           <p>My job isn't to manage your money. It's to make sure you never have to wonder if something important is being missed.</p>
         </div>
@@ -1010,12 +1019,10 @@
 
 
 <!-- ══════════════════════════════════════════════════
-     11 — SOCIAL PROOF
+     11, SOCIAL PROOF
 ══════════════════════════════════════════════════ -->
 <section class="sec" id="proof" data-screen-label="11 Social Proof" style="background:var(--white);">
   <div class="wrap">
-    <div class="copper-rule"></div>
-    <div class="eyebrow" style="margin-bottom:20px;">Proof · Testimonials</div>
     <h2 class="display-h2" style="max-width:24ch;">What Changes When Everything Finally Works Together</h2>
     <div class="testi-grid">
       <figure class="testi-card" style="margin:0;">
@@ -1043,25 +1050,24 @@
         </figcaption>
       </figure>
     </div>
-    <a href="#" class="text-link">→ Read more client experiences</a>
-    <div class="aeo" style="max-width:900px;">
-      <p>Each video testimonial needs a text summary beneath its embed. Pattern: client outcome + what changed + a direct quote if available. Example — Bill worked with Brian Skrobonja at Skrobonja Financial Group to restructure his portfolio so it generates the retirement income he needs to cover expenses and maintain his lifestyle. Before WealthSync, his income depended on unpredictable withdrawals. Now it is engineered. "The result of working with Brian has been setting up my portfolio so I have the income that I need to cover my expenses and live the lifestyle that I want to live."</p>
+    <a href="#" class="btn btn--primary" style="display:flex;width:fit-content;margin:0 auto;">Read more client experiences <span class="btn__arrow">→</span></a>
+    <div class="aeo" style="max-width:900px;margin:40px auto 0;background:transparent;border:none;border-top:1px solid rgba(184,115,51,0.18);border-radius:0;text-align:center;padding:28px 0 0;">
+      <p>Each video testimonial needs a text summary beneath its embed. Pattern: client outcome + what changed + a direct quote if available. Example, Bill worked with Brian Skrobonja at Skrobonja Financial Group to restructure his portfolio so it generates the retirement income he needs to cover expenses and maintain his lifestyle. Before WealthSync, his income depended on unpredictable withdrawals. Now it is engineered. "The result of working with Brian has been setting up my portfolio so I have the income that I need to cover my expenses and live the lifestyle that I want to live."</p>
     </div>
   </div>
 </section>
 
 
 <!-- ══════════════════════════════════════════════════
-     12 — PRIMARY CALL TO ACTION
+     12, PRIMARY CALL TO ACTION
 ══════════════════════════════════════════════════ -->
 <section class="sec--lg cta-sec" id="cta" data-screen-label="12 Primary Call to Action">
   <div class="wrap--sm cta-sec__inner">
-    <div class="copper-rule copper-rule--inv" style="margin:0 auto 32px;"></div>
     <h2>Ready to Find Out Where You Stand?</h2>
-    <p class="cta-sec__lead">Your initial call is a focused, no-obligation conversation. We'll learn about your situation, identify where the gaps may be, and help you understand whether WealthSync™ is the right fit — before anything is at stake.</p>
+    <p class="cta-sec__lead">Your initial call is a focused, no-obligation conversation. We'll learn about your situation, identify where the gaps may be, and help you understand whether WealthSync™ is the right fit, before anything is at stake.</p>
     <div class="cta-actions">
-      <a href="#" class="btn btn--white">Schedule Your Initial Call <span class="btn__arrow">→</span></a>
-      <a href="#check" class="btn btn--ghost">Not ready for a call? Take the 7-Minute WealthSync™ Check first →</a>
+      <a href="#" class="btn btn--primary btn--primary-lg">Schedule Your Initial Call <span class="btn__arrow">→</span></a>
+      <a href="#check" class="btn btn--ghost" style="border-bottom:none;">Not ready for a call? Take the 7-Minute WealthSync™ Check first →</a>
     </div>
     <p class="cta-closer">You worked too hard to leave any of this to chance.</p>
   </div>
@@ -1075,8 +1081,7 @@
   <div class="footer__main">
     <div class="footer__cols">
       <div>
-        <div class="footer-brand__name">Skrobonja</div>
-        <span class="footer-brand__sub">Financial Group</span>
+        <a href="#hero" class="footer-brand__logo"><img src="assets/logo-dark.png" alt="Skrobonja Financial Group"></a>
         <p class="footer-brand__tagline">Skrobonja Financial Group · St. Louis, MO · Established 1993</p>
       </div>
       <div>
@@ -1106,7 +1111,6 @@
         </ul>
       </div>
     </div>
-    <p class="footer__disc">Securities offered only by duly registered individuals through Madison Avenue Securities, LLC (MAS), Member FINRA &amp; SIPC. Advisory services offered through Skrobonja Wealth Management LLC, a Registered Investment Advisor. Skrobonja Financial Group, Skrobonja Wealth Management LLC, and MAS are separate entities. Past performance is no guarantee of future returns. Investing involves risk and possible loss of principal capital. WealthSync™, BUILD Banking™, Cashflow Confidence™, and Common-Sense Financial™ are trademarks of Skrobonja Financial Group.</p>
     <div class="footer__bottom">
       <span class="footer__copy">© 2025 Skrobonja Financial Group. All rights reserved.</span>
       <div class="footer__legal-links">
@@ -1119,4 +1123,12 @@
 </footer>
 
 </body>
+<script>
+  (function () {
+    var nav = document.querySelector('.nav');
+    function onScroll() { nav.classList.toggle('scrolled', window.scrollY > 24); }
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 </html>
